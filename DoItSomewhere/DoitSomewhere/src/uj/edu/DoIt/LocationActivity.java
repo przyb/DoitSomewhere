@@ -17,6 +17,10 @@ public class LocationActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.location);
         
+        if (_checkLoginStatus()) {
+        	
+        }
+        
         _initActionBar();
         _setActionBarTitle("Location details");
         _setActionBarBtnVisible(true);

@@ -12,16 +12,9 @@ public class DoitSomewhereActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
-        _initActionBar();
-        _setActionBarTitle("Do it somewhere!");
-        _setActionBarBtnVisible(false);
-        
-        Button loginBtn = (Button) findViewById(R.id.loginBtn);
-        loginBtn.setOnClickListener(new View.OnClickListener() {
-			
-			public void onClick(View arg0) {
-				startActivity(new Intent("net.przyb.testProject.START"));
-			}
-		});
+        _setLoginStatus(false); // fake not logged in
+        if (_checkLoginStatus()) {
+        	startActivity(new Intent("uj.edu.DoIt.START"));
+        }
     }
 }

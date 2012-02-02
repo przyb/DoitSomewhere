@@ -19,8 +19,12 @@ public class LookingForPreferencesActivity extends Activity {
         _setActionBarBtnOnClick(new View.OnClickListener() {
 			
 			public void onClick(View v) {
-				startActivity(new Intent("net.przyb.testProject.START"));
+				startActivity(new Intent("uj.edu.DoIt.START"));
 			}
 		});
+        
+        if (_checkLoginStatus()) {
+
+        }
     }
 }

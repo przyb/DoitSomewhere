@@ -29,17 +29,19 @@ public class LocationListActivity extends Activity {
 			}
 		});
         
-        ArrayList<ListItem> items = TestList.create();
-        
-        ListItemAdapter adapter = new ListItemAdapter(this, R.layout.locationlistitem, items);
-        ListView listView = (ListView) findViewById(R.id.locationList);
-        listView.setAdapter(adapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        if (_checkLoginStatus()) {
+        	ArrayList<ListItem> items = TestList.create();
+            
+            ListItemAdapter adapter = new ListItemAdapter(this, R.layout.locationlistitem, items);
+            ListView listView = (ListView) findViewById(R.id.locationList);
+            listView.setAdapter(adapter);
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-					long arg3) {
-				startActivity(new Intent("uj.edu.DoIt.LOCATION"));
-			}
-		});
+    			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+    					long arg3) {
+    				startActivity(new Intent("uj.edu.DoIt.LOCATION"));
+    			}
+    		});
+        }
     }
 }

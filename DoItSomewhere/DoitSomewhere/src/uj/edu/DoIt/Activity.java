@@ -1,5 +1,6 @@
 package uj.edu.DoIt;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -9,11 +10,32 @@ import android.widget.TextView;
 public abstract class Activity extends android.app.Activity {
 	private TextView _actionBarTitle = null;
 	private Button _actionBarBtn = null;
+	/**
+	 * @TODO true is for testing only. Should be changed to false and checked dynamically
+	 */
+	private Boolean _loginStatus = true;
 	
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+    
+    protected void _setLoginStatus(Boolean value) {
+    	_loginStatus = value;
+    }
+    
+    protected Boolean _getLoginStatus() {
+    	return _loginStatus;
+    }
+    
+    protected Boolean _checkLoginStatus() {
+    	if (!_getLoginStatus()) {
+    		startActivity(new Intent("uj.edu.DoIt.LOGIN"));
+    		return false;
+    	}
+    	
+    	return true;
     }
     
     protected void _initActionBar() {
